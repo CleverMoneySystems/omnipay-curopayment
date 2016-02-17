@@ -1,9 +1,9 @@
-# Omnipay: Cardgate
+# Omnipay: Curopayment
 
-**Cardgate gateway for the Omnipay PHP payment processing library**
+**Curopayment gateway for the Omnipay PHP payment processing library**
 
 [Omnipay](https://github.com/omnipay/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements Cardgate support for Omnipay.
+processing library for PHP 5.3+. This package implements Curopayment support for Omnipay.
 
 ## Installation
 
@@ -13,7 +13,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "cardgate/omnipay-cardgate": "~2.0"
+        "stormyy/omnipay-curopayment": "~1.0"
     }
 }
 ```
@@ -27,7 +27,7 @@ And run composer to update your dependencies:
 
 The following gateways are provided by this package:
 
-* Cardgate
+* Curopayment
 
 For general usage instructions, please see the main [Omnipay](https://github.com/omnipay/omnipay)
 repository. See also the [Cardgate RESTFul Documentation](https://www.cardgate.com/api-docs/cg-api-rest.html)
@@ -36,7 +36,7 @@ repository. See also the [Cardgate RESTFul Documentation](https://www.cardgate.c
 
 ```php
 
-	$gateway = Omnipay::create( 'Cardgate' );
+	$gateway = Omnipay::create( 'Curopayment' );
 	$gateway->initialize( 
 		array(
 				'siteId' => '<siteid>',
@@ -85,15 +85,4 @@ if($response->isSuccessful()){
     
 The billing/shipping data are set with the `card` parameter, with an array or [CreditCard object](https://github.com/omnipay/omnipay#credit-card--payment-form-input).
 
-        
-## Support
 
-If you are having general issues with Omnipay, we suggest posting on
-[Stack Overflow](http://stackoverflow.com/). Be sure to add the
-[omnipay tag](http://stackoverflow.com/questions/tagged/omnipay) so it can be easily found.
-
-If you want to keep up to date with release anouncements, discuss ideas for the project,
-or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
-you can subscribe to.
-
-If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/Cardgate/omnipay-cardgate/issues).
