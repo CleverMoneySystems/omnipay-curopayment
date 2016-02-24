@@ -1,14 +1,11 @@
 <?php
 
 /*
- * CardGate driver for Omnipay PHP payment processing library
- * https://www.cardgate.com/
- *
- * Latest driver release:
- * https://github.com/cardgate/
+ * Curopayment driver for Omnipay PHP payment processing library
+ * https://www.curopayments.com
  *
  */
-namespace Omnipay\Cardgate\Message;
+namespace Omnipay\Curo\Message;
 
 use \Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
 
@@ -26,16 +23,14 @@ abstract class AbstractRequest extends BaseAbstractRequest
     public function getUrl()
     {
         if ($this->getTestMode()) {
-            return 'https://api-test.cardgate.com';
+            return 'https://secure-staging.curopayments.net/rest/v1/';
         } else {
-            return 'https://api.cardgate.com';
+            return 'https://secure.curopayments.net/rest/v1/';
         }
     }
 
     /**
-     * We need this for api-test.cardgate.com because the hostname does not match the cert...
      *
-     * @param bool $bTestmode_            
      */
     protected function setSslVerification()
     {
@@ -44,11 +39,11 @@ abstract class AbstractRequest extends BaseAbstractRequest
         else
             $this->httpClient->setSslVerification(); // set to defaults
     }
-    
+
     // ------------ Request specific Getter'n'Setters ------------ //
-    
+
     // ------------ Getter'n'Setters ------------ //
-    
+
     /**
      *
      * @return string
@@ -60,8 +55,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setApiKey($value)
     {
@@ -79,8 +74,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setMerchantId($value)
     {
@@ -98,8 +93,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setSiteId($value)
     {
@@ -117,8 +112,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setIpAddress($value)
     {
@@ -136,8 +131,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setNotifyUrl($value)
     {
@@ -155,8 +150,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setReturnUrl($value)
     {
@@ -174,8 +169,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setCancelUrl($value)
     {
@@ -193,11 +188,30 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      *
-     * @param string $value            
-     * @return \Omnipay\Cardgate\Gateway
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
      */
     public function setLanguage($value)
     {
         return $this->setParameter('language', $value);
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getIsCuroProtocol()
+    {
+        return $this->getParameter('isCuroProtocol');
+    }
+
+    /**
+     *
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
+     */
+    public function setIsCuroProtocol($value)
+    {
+        return $this->setParameter('isCuroProtocol', $value);
     }
 }

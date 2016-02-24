@@ -7,7 +7,7 @@
  * https://github.com/cardgate/
  *
  */
-namespace Omnipay\Cardgate\Message;
+namespace Omnipay\Curo\Message;
 
 use Omnipay\Tests\TestCase;
 /**

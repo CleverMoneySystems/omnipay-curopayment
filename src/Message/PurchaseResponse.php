@@ -1,15 +1,12 @@
 <?php
 
 /*
- * CardGate driver for Omnipay PHP payment processing library
- * https://www.cardgate.com/
- *
- * Latest driver release:
- * https://github.com/cardgate/
+ * Curopayment driver for Omnipay PHP payment processing library
+ * https://www.curopayments.com/
  *
  */
- 
-namespace Omnipay\Cardgate\Message;
+
+namespace Omnipay\Curo\Message;
 
 use Omnipay\Common\Message\RedirectResponseInterface;
 
@@ -31,18 +28,18 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
      * {@inheritdoc}
      */
     public function isRedirect() {
-        return $this->data->payment->issuer_auth_url != '';
+        return $this->data['payment']['issuer_auth_url'] != '';
     }
 
     public function isPending() {
-        return $this->data->payment->action == 'pending';
+        return $this->data['payment']['action'] == 'pending';
     }
 
     /**
      * {@inheritdoc}
      */
     public function getRedirectUrl() {
-        return  ( string ) $this->data->payment->issuer_auth_url;
+        return  ( string ) $this->data['payment']['issuer_auth_url'];
     }
 
     /**
@@ -63,8 +60,8 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
      * {@inheritdoc}
      */
     public function getTransactionId() {
-        if ( isset( $this->data->payment ) && isset( $this->data->payment->transaction_id ) ) {
-            return ( string ) $this->data->payment->transaction_id;
+        if ( isset( $this->data['payment'] ) && isset( $this->data['payment']['transaction_id'] ) ) {
+            return ( string ) $this->data['payment']['transaction_id'];
         }
         return false;
     }

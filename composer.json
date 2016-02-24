@@ -1,13 +1,13 @@
 {
-    "name": "cardgate/omnipay-cardgate",
-    "description": "Cardgate gateway for the Omnipay payment processing library",
+    "name": "stormyy/omnipay-curopayment",
+    "description": "Curopayment gateway for the Omnipay payment processing library",
     "keywords": [
         "gateway",
         "merchant",
         "omnipay",
         "pay",
         "payment",
-        "cardgate"
+        "curopayment"
     ],
     "license": "MIT",
     "authors": [
@@ -16,12 +16,12 @@
             "email": "tech@cardgate.com"
         },
         {
-            "name": "Cardgate",
-            "homepage": "https://cardgate.com"
+            "name": "Bram van Eijk - CleverCoin",
+            "homepage": "https://www.clevercoin.com"
         }
     ],
     "autoload": {
-        "psr-4": { "Omnipay\\Cardgate\\" : "src/" }
+        "psr-4": { "Omnipay\\Curo\\" : "src/" }
     },
     "require": {
         "omnipay/common": "~2.3"

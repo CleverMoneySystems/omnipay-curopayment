@@ -8,7 +8,7 @@
  * https://github.com/cardgate/
  *
  */
-namespace Omnipay\Cardgate\Message;
+namespace Omnipay\Curo\Message;
 
 use Mockery as m;
 use Omnipay\Tests\TestCase;
@@ -24,11 +24,11 @@ class CompletePurchaseRequestTest extends TestCase
 	protected function setUp ()
 	{
 		$request = $this->getHttpRequest();
-		$arguments = array( 
-				$this->getHttpClient(), 
-				$request 
+		$arguments = array(
+				$this->getHttpClient(),
+				$request
 		);
-		$this->request = m::mock( 'Omnipay\Cardgate\Message\CompletePurchaseRequest[getEndpoint]', $arguments );
+		$this->request = m::mock( 'Omnipay\Curo\Message\CompletePurchaseRequest[getEndpoint]', $arguments );
 		$this->request->setMerchantId( CG_MERCHANTID );
 		$this->request->setApiKey( CG_APIKEY );
 		$this->request->setSiteId( CG_SITEID );

@@ -1,33 +1,30 @@
 <?php
 
 /*
- * CardGate driver for Omnipay PHP payment processing library
- * https://www.cardgate.com/
- *
- * Latest driver release:
- * https://github.com/cardgate/
+ * Curopayment driver for Omnipay PHP payment processing library
+ * https://www.curopayments.com
  *
  */
-namespace Omnipay\Cardgate;
+namespace Omnipay\Curo;
 
 use Omnipay\Common\AbstractGateway;
 
 /**
- * CardGate Omnipay gateway class
+ * Curopayment Omnipay gateway class
  *
  * @author Martin Schipper martin@cardgate.com
  */
 class Gateway extends AbstractGateway
 {
-	
+
 	// ------------ Some neccesary evil ------------ //
-	
+
     /**
      * {@inheritdoc}
      */
 	public function getName ()
 	{
-		return 'Cardgate';
+		return 'Curopayment';
 	}
 
     /**
@@ -46,9 +43,9 @@ class Gateway extends AbstractGateway
 				'testMode' => false
 		);
 	}
-	
+
 	// ------------ Getter'n'Setters ------------ //
-	
+
 	/**
 	 *
 	 * @return string
@@ -60,8 +57,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setApiKey ( $value )
 	{
@@ -79,8 +76,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setMerchantId ( $value )
 	{
@@ -98,8 +95,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setSiteId ( $value )
 	{
@@ -117,8 +114,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setIpAddress ( $value )
 	{
@@ -136,8 +133,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setNotifyUrl ( $value )
 	{
@@ -155,8 +152,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setReturnUrl ( $value )
 	{
@@ -174,8 +171,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setCancelUrl ( $value )
 	{
@@ -193,8 +190,8 @@ class Gateway extends AbstractGateway
 
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	public function setLanguage ( $value )
 	{
@@ -213,8 +210,8 @@ class Gateway extends AbstractGateway
 	 */
 	/**
 	 *
-	 * @param string $value        	
-	 * @return \Omnipay\Cardgate\Gateway
+	 * @param string $value
+	 * @return \Omnipay\Curo\Gateway
 	 */
 	/*
 	 * public function setPaymentMethod( $value )
@@ -222,20 +219,20 @@ class Gateway extends AbstractGateway
 	 * return $this->setParameter( 'paymentMethod', $value );
 	 * }
 	 */
-	
+
 	// ------------ Requests ------------ //
-	
+
 	/**
 	 * Retrieve iDEAL issuers.
 	 *
 	 * @param array $parameters
 	 *        	An array of options
-	 *        	
-	 * @return \Omnipay\Cardgate\Message\FetchIssuersRequest
+	 *
+	 * @return \Omnipay\Curo\Message\FetchIssuersRequest
 	 */
 	public function fetchIssuers ( array $parameters = array() )
 	{
-		return $this->createRequest( '\Omnipay\Cardgate\Message\FetchIssuersRequest', $parameters );
+		return $this->createRequest( '\Omnipay\Curo\Message\FetchIssuersRequest', $parameters );
 	}
 
 	/**
@@ -243,12 +240,12 @@ class Gateway extends AbstractGateway
 	 *
 	 * @param array $parameters
 	 *        	An array of options
-	 *        	
-	 * @return \Omnipay\Cardgate\Message\FetchPaymentMethodsRequest
+	 *
+	 * @return \Omnipay\Curo\Message\FetchPaymentMethodsRequest
 	 */
 	public function fetchPaymentMethods ( array $parameters = array() )
 	{
-		return $this->createRequest( '\Omnipay\Cardgate\Message\FetchPaymentMethodsRequest', $parameters );
+		return $this->createRequest( '\Omnipay\Curo\Message\FetchPaymentMethodsRequest', $parameters );
 	}
 
 	/**
@@ -256,12 +253,12 @@ class Gateway extends AbstractGateway
 	 *
 	 * @param array $parameters
 	 *        	An array of options
-	 *        	
-	 * @return \Omnipay\Cardgate\Message\PurchaseRequest
+	 *
+	 * @return \Omnipay\Curo\Message\PurchaseRequest
 	 */
 	public function purchase ( array $parameters = array() )
 	{
-		return $this->createRequest( '\Omnipay\Cardgate\Message\PurchaseRequest', $parameters );
+		return $this->createRequest( '\Omnipay\Curo\Message\PurchaseRequest', $parameters );
 	}
 
 	/**
@@ -269,11 +266,11 @@ class Gateway extends AbstractGateway
 	 *
 	 * @param array $parameters
 	 *        	An array of options ( array ( 'transactionId' => $id ) )
-	 *        	
-	 * @return \Omnipay\Cardgate\Message\CompletePurchaseRequest
+	 *
+	 * @return \Omnipay\Curo\Message\CompletePurchaseRequest
 	 */
 	public function completePurchase ( array $parameters = array() )
 	{
-		return $this->createRequest( '\Omnipay\Cardgate\Message\CompletePurchaseRequest', $parameters );
+		return $this->createRequest( '\Omnipay\Curo\Message\CompletePurchaseRequest', $parameters );
 	}
 }

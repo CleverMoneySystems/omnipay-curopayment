@@ -1,15 +1,12 @@
 <?php
 
 /*
- * CardGate driver for Omnipay PHP payment processing library
- * https://www.cardgate.com/
- *
- * Latest driver release:
- * https://github.com/cardgate/
+ * Curopayment driver for Omnipay PHP payment processing library
+ * https://www.curopayments.com/
  *
  */
- 
-namespace Omnipay\Cardgate\Message;
+
+namespace Omnipay\Curo\Message;
 
 use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
 use Omnipay\Common\Message\FetchIssuersResponseInterface;
@@ -26,21 +23,24 @@ class FetchIssuersResponse extends BaseAbstractResponse implements FetchIssuersR
      * {@inheritdoc}
      */
     public function isSuccessful() {
-        return isset( $this->data->issuers );
+        return isset( $this->data['issuers'] );
     }
 
     /**
      * {@inheritdoc}
      */
     public function getIssuers() {
-        
+
         $issuers = array();
         if ( isset( $this->data->issuers ) ) {
-            foreach ( $this->data->issuers->issuer as $issuer ) {
+            foreach ( $this->data['issuers']['issuer'] as $issuer ) {
                 $issuers[] = new Issuer( ( string ) $issuer->id, ( string ) $issuer->name );
             }
         }
         return $issuers;
     }
 
+    public function getRedirectUrl() {
+        // TODO: Implement getRedirectUrl() method.
+    }
 }

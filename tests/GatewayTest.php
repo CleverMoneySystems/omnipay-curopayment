@@ -36,18 +36,18 @@ class GatewayTest extends GatewayTestCase
 	protected function setUp ()
 	{
 		parent::setUp();
-		
+
 		$this->gateway = Omnipay::create( 'Cardgate' );
-		
-		$this->gateway->initialize( 
-				array( 
-						'siteId' => CG_SITEID, 
-						'merchantId' => CG_MERCHANTID, 
-						'apiKey' => CG_APIKEY, 
-						'notifyUrl' => CG_NOTIFYURL, 
-						'returnUrl' => CG_RETURNURL, 
-						'cancelUrl' => CG_CANCELURL, 
-						'testMode' => true 
+
+		$this->gateway->initialize(
+				array(
+						'siteId' => CG_SITEID,
+						'merchantId' => CG_MERCHANTID,
+						'apiKey' => CG_APIKEY,
+						'notifyUrl' => CG_NOTIFYURL,
+						'returnUrl' => CG_RETURNURL,
+						'cancelUrl' => CG_CANCELURL,
+						'testMode' => true
 				) );
 	}
 
@@ -55,10 +55,10 @@ class GatewayTest extends GatewayTestCase
 	{
 		/**
 		 *
-		 * @var \Omnipay\Cardgate\Message\FetchIssuersRequest $request
+		 * @var \Omnipay\Curo\Message\FetchIssuersRequest $request
 		 */
 		$response = $this->gateway->fetchIssuers()->send();
-		$this->assertInstanceOf( 'Omnipay\Cardgate\Message\FetchIssuersResponse', $response );
+		$this->assertInstanceOf( 'Omnipay\Curo\Message\FetchIssuersResponse', $response );
 		$issuers = $response->getIssuers();
 		$this->assertInstanceOf( 'Omnipay\Common\Issuer', next ( $issuers ) );
 	}
@@ -67,10 +67,10 @@ class GatewayTest extends GatewayTestCase
 	{
 		/**
 		 *
-		 * @var \Omnipay\Cardgate\Message\FetchIssuersRequest $request
+		 * @var \Omnipay\Curo\Message\FetchIssuersRequest $request
 		 */
 		$response = $this->gateway->fetchPaymentMethods()->send();
-		$this->assertInstanceOf( 'Omnipay\Cardgate\Message\FetchPaymentMethodsResponse', $response );
+		$this->assertInstanceOf( 'Omnipay\Curo\Message\FetchPaymentMethodsResponse', $response );
 		$paymentmethods = $response->getPaymentMethods();
 		$this->assertInstanceOf( 'Omnipay\Common\PaymentMethod', next ( $paymentmethods ) );
 	}
@@ -79,19 +79,19 @@ class GatewayTest extends GatewayTestCase
 	{
 		/**
 		 *
-		 * @var \Omnipay\Cardgate\Message\PurchaseRequest $request
+		 * @var \Omnipay\Curo\Message\PurchaseRequest $request
 		 */
-		$request = $this->gateway->purchase( 
-				array( 
-						'issuer' => '121', 
-						'amount' => '10.00', 
-						'currency' => 'EUR', 
-						'description' => 'Description field', 
-						'language' => 'nl', 
-						'returnUrl' => 'http://localhost/return', 
-						'notifyUrl' => 'http://localhost/notify' 
+		$request = $this->gateway->purchase(
+				array(
+						'issuer' => '121',
+						'amount' => '10.00',
+						'currency' => 'EUR',
+						'description' => 'Description field',
+						'language' => 'nl',
+						'returnUrl' => 'http://localhost/return',
+						'notifyUrl' => 'http://localhost/notify'
 				) );
-		$this->assertInstanceOf( 'Omnipay\Cardgate\Message\PurchaseRequest', $request );
+		$this->assertInstanceOf( 'Omnipay\Curo\Message\PurchaseRequest', $request );
 		$this->assertSame( '121', $request->getIssuer() );
 		$this->assertSame( '10.00', $request->getAmount() );
 		$this->assertSame( 'Description field', $request->getDescription() );
@@ -103,12 +103,12 @@ class GatewayTest extends GatewayTestCase
 	{
 		/**
 		 *
-		 * @var \Omnipay\Cardgate\Message\CompletePurchaseRequest $request
+		 * @var \Omnipay\Curo\Message\CompletePurchaseRequest $request
 		 */
-		$request = $this->gateway->completePurchase( array( 
-				'transactionId' => '123456' 
+		$request = $this->gateway->completePurchase( array(
+				'transactionId' => '123456'
 		) );
-		$this->assertInstanceOf( 'Omnipay\Cardgate\Message\CompletePurchaseRequest', $request );
+		$this->assertInstanceOf( 'Omnipay\Curo\Message\CompletePurchaseRequest', $request );
 		$this->assertSame( '123456', $request->getTransactionId() );
 	}
 }

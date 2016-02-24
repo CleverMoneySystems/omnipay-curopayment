@@ -8,7 +8,7 @@
  * https://github.com/cardgate/
  *
  */
-namespace Omnipay\Cardgate\Message;
+namespace Omnipay\Curo\Message;
 
 use Omnipay\Tests\TestCase;
 
@@ -50,8 +50,8 @@ class PurchaseRequestTest extends TestCase
 		$response = $this->request->send();
 		$this->assertFalse( $response->isSuccessful() );
 		$this->assertTrue( $response->isRedirect() );
-		$this->assertEquals( 
-				'https://gateway.cardgateplus.com/simulator/?return_url=http://omnipay-cardgate.dev1.dbcorp.nl/return.php&ec=3768165', 
+		$this->assertEquals(
+				'https://gateway.cardgateplus.com/simulator/?return_url=http://omnipay-cardgate.dev1.dbcorp.nl/return.php&ec=3768165',
 				$response->getRedirectUrl() );
 		$this->assertEquals( '3768165', $response->getTransactionId() );
 	}

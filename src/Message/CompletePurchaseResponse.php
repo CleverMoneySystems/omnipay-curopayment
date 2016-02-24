@@ -2,13 +2,9 @@
 
 /*
  * CardGate driver for Omnipay PHP payment processing library
- * https://www.cardgate.com/
- *
- * Latest driver release:
- * https://github.com/cardgate/
- *
+ * https://www.curopayments.com/
  */
-namespace Omnipay\Cardgate\Message;
+namespace Omnipay\Curo\Message;
 
 /**
  * CompletePurchaseResponse class - It contains information about the
@@ -46,8 +42,8 @@ class CompletePurchaseResponse extends PurchaseResponse
      */
 	public function getStatus ()
 	{
-		if ( isset( $this->data->transaction->status ) ) {
-			return ( string ) $this->data->transaction->status;
+		if ( isset( $this->data['transaction']['status'] ) ) {
+			return ( string ) $this->data['transaction']['status'];
 		}
 		return null;
 	}
@@ -57,8 +53,8 @@ class CompletePurchaseResponse extends PurchaseResponse
      */
 	public function getTransactionId ()
 	{
-		if ( isset( $this->data->transaction->transaction_id ) ) {
-			return ( string ) $this->data->transaction->transaction_id;
+		if ( isset( $this->data['transaction']['transaction_id'] ) ) {
+			return ( string ) $this->data['transaction']['transaction_id'];
 		}
 		return false;
 	}

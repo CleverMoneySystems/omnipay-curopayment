@@ -7,7 +7,7 @@
  * https://github.com/cardgate/
  *
  */
-namespace Omnipay\Cardgate\Message;
+namespace Omnipay\Curo\Message;
 
 use Omnipay\Tests\TestCase;
 /**
@@ -30,7 +30,7 @@ class FetchPaymentMethodsRequestTest extends TestCase
         $this->request->setMerchantId( CG_MERCHANTID );
         $this->request->setApiKey( CG_APIKEY );
         $this->request->setSiteId( CG_SITEID );
-        
+
     }
 
     public function testSendSuccess()

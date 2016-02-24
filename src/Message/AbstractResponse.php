@@ -2,14 +2,11 @@
 
 /*
  * CardGate driver for Omnipay PHP payment processing library
- * https://www.cardgate.com/
- *
- * Latest driver release:
- * https://github.com/cardgate/
+ * https://www.curopayments.com/
  *
  */
- 
-namespace Omnipay\Cardgate\Message;
+
+namespace Omnipay\Curo\Message;
 
 use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
@@ -32,8 +29,8 @@ abstract class AbstractResponse extends BaseAbstractResponse {
     public function __construct( RequestInterface $request, $data ) {
         parent::__construct( $request, $data );
         if ( isset( $this->data->error ) ) {
-            $this->code = ( string ) $this->data->error->code;
-            $this->data = ( string ) $this->data->error->message;
+            $this->code = ( string ) $this->data['error']['code'];
+            $this->data = ( string ) $this->data['error']['message'];
         }
     }
 
