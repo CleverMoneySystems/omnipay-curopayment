@@ -214,4 +214,22 @@ abstract class AbstractRequest extends BaseAbstractRequest
     {
         return $this->setParameter('isCuroProtocol', $value);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomer()
+    {
+        return $this->getParameter('customer');
+    }
+
+    /**
+     *
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
+     */
+    public function setCustomer($value)
+    {
+        return $this->setParameter('customer', $value);
+    }
 }
