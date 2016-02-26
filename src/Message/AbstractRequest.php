@@ -232,4 +232,22 @@ abstract class AbstractRequest extends BaseAbstractRequest
     {
         return $this->setParameter('customer', $value);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getByPassSimulator()
+    {
+        return $this->getParameter('bypass_simulator');
+    }
+
+    /**
+     *
+     * @param string $value
+     * @return \Omnipay\Curo\Gateway
+     */
+    public function setByPassSimulator($value)
+    {
+        return $this->setParameter('bypass_simulator', $value);
+    }
 }

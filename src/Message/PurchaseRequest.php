@@ -48,7 +48,8 @@ class PurchaseRequest extends AbstractRequest
 				'return_url_failed' => $this->getCancelUrl(),
 				'ip_address' => $this->getIpAddress(),
 				'language' => $this->getLanguage(),
-				'customer' => $this->getCustomer()
+				'customer' => $this->getCustomer(),
+				'bypass_simulator'=>$this->getByPassSimulator()
 		);
 		if ( $this->getPaymentMethod() == 'ideal' ) {
 			$data['issuer_id'] = $this->getIssuer();
