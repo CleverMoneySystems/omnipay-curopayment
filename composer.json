@@ -1,5 +1,5 @@
 {
-    "name": "stormyy/omnipay-curopayment",
+    "name": "CleverMoneySystems/omnipay-curopayment",
     "description": "Curopayment gateway for the Omnipay payment processing library",
     "keywords": [
         "gateway",
