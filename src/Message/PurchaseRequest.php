@@ -96,8 +96,6 @@ class PurchaseRequest extends AbstractRequest
 		$request->setHeader( 'Content-type', 'application/json' );
 		$request->addHeader( 'Accept', 'application/json' );
 
-		Error::sendDebugException(new Excpetion(var_export($httpResponse, true)));
-
 		try {
 			$httpResponse = $request->send();
 		} catch ( BadResponseException $e ) {
