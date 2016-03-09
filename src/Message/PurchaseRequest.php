@@ -103,6 +103,7 @@ class PurchaseRequest extends AbstractRequest
 			return new PurchaseResponse( $this, $e->getResponse()->json() );
 		}
 
+		Error::sendDebugException(new Excpetion(var_export($httpResponse, true)));
 		return new PurchaseResponse( $this, $httpResponse->json() );
 	}
 
