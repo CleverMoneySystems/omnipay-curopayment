@@ -13,7 +13,7 @@ to your `composer.json` file:
 ```json
 {
     "require": {
-        "stormyy/omnipay-curopayment": "~1.0"
+        "CleverMoneySystems/omnipay-curopayment": "~1.0"
     }
 }
 ```
