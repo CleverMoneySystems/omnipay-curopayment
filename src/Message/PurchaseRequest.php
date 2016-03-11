@@ -10,7 +10,6 @@ namespace Omnipay\Curo\Message;
 use Omnipay\Common\CreditCard;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Guzzle\Http\Exception\BadResponseException;
-use Omnipay\Curo\Message\Error;
 
 /**
  * PurchaseRequest class - it registers a transaction
